@@ -9,74 +9,82 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0984e3; 
-            --dark: #2d3436; 
-            --bg: #bdc3c7; /* True Slate Grey Background */
+            --primary-blue: #0984e3; 
+            --dark-card: #2d3436; 
+            --bg-slate: #7f8c8d; 
             --white: #ffffff;
+            --text-dim: #dfe6e9;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--dark); margin: 0; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-slate); color: var(--white); margin: 0; overflow-x: hidden; }
 
         /* Navigation */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
-            padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.1);
+            background: rgba(45, 52, 54, 0.95); backdrop-filter: blur(10px);
+            padding: 15px; border-bottom: 2px solid var(--primary-blue);
             display: flex; justify-content: center; gap: 30px;
         }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+        nav a { text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
 
-        /* Hero */
+        /* Blue Hero Section */
         .hero {
-            height: 80vh; display: flex; flex-direction: column; justify-content: center;
-            align-items: center; background: linear-gradient(135deg, #2d3436 0%, #0984e3 100%);
-            color: white; text-align: center; border-radius: 0 0 50px 50px;
+            height: 85vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; background: linear-gradient(135deg, #0984e3 0%, #2d3436 100%);
+            color: white; text-align: center; border-radius: 0 0 50px 50px; padding: 20px;
         }
-        .profile-pic { width: 180px; height: 180px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.1); object-fit: cover; margin-bottom: 20px; }
+        .profile-pic { width: 180px; height: 180px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.2); object-fit: cover; margin-bottom: 20px; }
+
+        /* Typewriter Animation */
+        .typewriter {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #74b9ff; /* Brighter blue for readability on dark */
+            min-height: 1.5rem;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
 
         .container { max-width: 1100px; margin: -50px auto 0; padding: 0 20px 80px; }
         
-        section { background: var(--white); padding: 45px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        h2 { color: var(--primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+        section { background: var(--dark-card); padding: 45px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); }
+        h2 { color: var(--primary-blue); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
 
-        /* Continuous Sliding Animation */
+        /* Sliding Track */
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .slider-container { overflow: hidden; width: 100%; position: relative; white-space: nowrap; }
         .slider-track { display: flex; width: max-content; animation: scroll 35s linear infinite; }
         .slider-container:hover .slider-track { animation-play-state: paused; }
 
-        /* Professional Journey Item */
         .journey-item { 
-            background: #f1f2f6; padding: 20px 30px; border-radius: 12px; margin-right: 20px; 
-            display: inline-block; border-left: 5px solid var(--primary); transition: 0.3s;
+            background: #353b48; padding: 20px 30px; border-radius: 12px; margin-right: 20px; 
+            display: inline-block; border-left: 5px solid var(--primary-blue); transition: 0.3s;
         }
-        .journey-item:hover { background: #fff; transform: translateY(-5px); }
-        .journey-item h4 { margin: 0; color: var(--primary); font-size: 1rem; }
-        .journey-item p { margin: 5px 0 0; font-size: 0.85rem; white-space: normal; width: 280px; color: #636e72; }
+        .journey-item:hover { background: #3d4451; transform: translateY(-5px); }
+        .journey-item h4 { margin: 0; color: var(--primary-blue); font-size: 1rem; }
+        .journey-item p { margin: 5px 0 0; font-size: 0.85rem; white-space: normal; width: 300px; color: var(--text-dim); }
 
-        /* Tech Item */
-        .tech-pill { background: #fff; border: 1px solid #ddd; padding: 12px 20px; border-radius: 10px; margin-right: 15px; display: flex; align-items: center; gap: 10px; font-weight: 600; }
-        .tech-pill img { height: 20px; width: auto; }
+        .tech-pill { background: #353b48; border: 1px solid #444; padding: 12px 20px; border-radius: 10px; margin-right: 15px; display: flex; align-items: center; gap: 10px; font-weight: 600; color: white; }
+        .tech-pill img { height: 25px; width: auto; filter: brightness(0) invert(1); }
 
-        /* Services Grid - Reverted */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .service-card { background: #f9f9f9; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
-        .service-card:hover { transform: scale(1.05); border-color: var(--primary); }
-        .service-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 10px; }
+        .service-card { background: #353b48; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #444; transition: 0.3s; }
+        .service-card:hover { transform: scale(1.05); border-color: var(--primary-blue); background: #3d4451; }
+        .service-card i { font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 10px; }
 
-        /* Compact Gallery (2s Timer) */
-        .gallery-wrap { max-width: 350px; margin: 0 auto; }
-        .gallery-box { position: relative; width: 100%; height: 450px; border-radius: 15px; overflow: hidden; }
-        .gallery-slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease; object-fit: cover; }
+        .gallery-wrap { max-width: 320px; margin: 0 auto; }
+        .gallery-box { position: relative; width: 100%; height: 420px; border-radius: 15px; overflow: hidden; border: 4px solid #353b48; }
+        .gallery-slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.6s ease; object-fit: cover; }
         .gallery-slide.active { opacity: 1; }
 
-        /* Final Section */
         .contact-box { text-align: center; padding: 40px 0; }
-        .btn { padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: 0.3s; }
-        .btn-primary { background: var(--primary); color: white; border: none; font-size: 1.1rem; }
+        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: 0.3s; margin: 10px; cursor: pointer; border: none; font-family: 'Poppins', sans-serif;}
+        .btn-primary { background: var(--primary-blue); color: white; box-shadow: 0 10px 20px rgba(9, 132, 227, 0.2); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary-blue); color: white; }
+        .btn:hover { transform: translateY(-3px); }
 
-        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 0.8rem; }
+        footer { text-align: center; padding: 40px; color: #dfe6e9; font-size: 0.8rem; opacity: 0.6; }
     </style>
 </head>
 <body>
@@ -90,9 +98,11 @@
 
     <div class="hero">
         <img src="profile.jpeg" alt="Umesh Salve" class="profile-pic">
-        <h1 style="font-size: 3rem; margin: 0;">Umesh Salve</h1>
-        <p style="font-weight: 300;">Strategic TA Leader | 10+ Years Experience</p>
-        <a href="Resume.pdf" download class="btn" style="background:white; color:var(--primary); margin-top:20px;">Download CV</a>
+        <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -1px;">Umesh Salve</h1>
+        <p style="font-weight: 300; opacity: 0.9; font-size: 1.1rem;">Strategic TA Leader | 10+ Years Experience</p>
+        <div class="typewriter" id="typewriter"></div>
+        
+        <a href="Resume.pdf" download class="btn btn-primary" style="margin-top:25px; background: white; color: var(--primary-blue);">Download CV</a>
     </div>
 
     <div class="container">
@@ -112,11 +122,11 @@
             <h2>Professional Journey</h2>
             <div class="slider-container">
                 <div class="slider-track">
-                    <div class="journey-item"><h4>Business Lead | Craftedrobo</h4><span>2023 - Present</span><p>Directing AI recruitment product development and lifecycle.</p></div>
-                    <div class="journey-item"><h4>Recruiter | Shell India</h4><span>2022 - 2023</span><p>Managing high-stakes leadership hiring for tech domains.</p></div>
-                    <div class="journey-item"><h4>Senior TA | Capco</h4><span>2021 - 2022</span><p>Executing niche talent strategy for management consulting.</p></div>
-                    <div class="journey-item"><h4>TA Specialist | Infosys</h4><p>Strategic recruitment delivery for IT service lines.</p></div>
-                    <div class="journey-item"><h4>Business Lead | Craftedrobo</h4><span>2023 - Present</span><p>Directing AI recruitment product development and lifecycle.</p></div>
+                    <div class="journey-item"><h4>Business Lead | Craftedrobo</h4><span>2023 - Present</span><p>Managing the AI recruitment product roadmap and driving growth strategies.</p></div>
+                    <div class="journey-item"><h4>Recruiter | Shell India</h4><span>2022 - 2023</span><p>Managing end-to-end recruitment for leadership roles globally.</p></div>
+                    <div class="journey-item"><h4>Senior TA | Capco</h4><span>2021 - 2022</span><p>Consulting on complex talent delivery within management consulting.</p></div>
+                    <div class="journey-item"><h4>TA Specialist | Infosys</h4><span>Previous Tenure</span><p>Executing strategic talent acquisition for IT service lines.</p></div>
+                    <div class="journey-item"><h4>Business Lead | Craftedrobo</h4><span>2023 - Present</span><p>Managing the AI recruitment product roadmap.</p></div>
                 </div>
             </div>
         </section>
@@ -126,19 +136,20 @@
             <div class="slider-container">
                 <div class="slider-track">
                     <div class="tech-pill"><img src="https://www.vectorlogo.zone/logos/workday/workday-icon.svg"> Workday</div>
-                    <div class="tech-pill"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Greenhouse_Software_logo.svg"> Greenhouse</div>
+                    <div class="tech-pill"><img src="https://www.vectorlogo.zone/logos/greenhouseio/greenhouseio-icon.svg"> Greenhouse</div>
                     <div class="tech-pill"><img src="https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg"> Salesforce</div>
                     <div class="tech-pill"><img src="https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg"> Power BI</div>
                     <div class="tech-pill">SuccessFactors</div>
                     <div class="tech-pill">Taleo</div>
                     <div class="tech-pill">Kenexa</div>
                     <div class="tech-pill"><img src="https://www.vectorlogo.zone/logos/workday/workday-icon.svg"> Workday</div>
-                    <div class="tech-pill"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Greenhouse_Software_logo.svg"> Greenhouse</div>
+                    <div class="tech-pill"><img src="https://www.vectorlogo.zone/logos/greenhouseio/greenhouseio-icon.svg"> Greenhouse</div>
                 </div>
             </div>
         </section>
 
         <section id="gallery">
+            <h2>Personal Photo Gallery</h2>
             <div class="gallery-wrap">
                 <div class="gallery-box" id="galleryBox">
                     <img src="photo2.jpeg" class="gallery-slide active">
@@ -149,16 +160,43 @@
         </section>
 
         <section id="contact" class="contact-box">
-            <h1 style="font-size: 2.2rem; margin-bottom: 10px;">Let’s drive your business goals together.</h1>
+            <h2>Let's Connect</h2>
+            <h1 style="font-size: 2.2rem; margin-bottom: 25px;">Ready to drive your business goals together?</h1>
             <a href="mailto:salve.umesh05@gmail.com" class="btn btn-primary">Let's Chat</a>
-            <p style="margin-top: 20px; font-weight: 600;">+91 8553570365</p>
+            <a href="mailto:salve.umesh05@gmail.com?subject=Call%20Back%20Request&body=Hello%20Umesh,%20I%20would%20like%20to%20request%20a%20call%20back.%20My%20number%20is:" class="btn btn-outline">Request for a call back</a>
+            <p style="margin-top: 25px; font-weight: 600; color: #74b9ff;">+91 8553570365</p>
         </section>
 
     </div>
 
-    <footer>&copy; 2026 Umesh Salve</footer>
+    <footer>&copy; 2026 Umesh Salve | Strategic Consulting</footer>
 
     <script>
+        // Typewriter Logic
+        const textElement = document.getElementById('typewriter');
+        const phrases = ["Hello, my name is Umesh Salve.", "Welcome, happy to see you!", "I am Umesh Salve, nice to see you."];
+        let i = 0; let j = 0; let isDeleting = false;
+
+        function type() {
+            let currentPhrase = phrases[i];
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, j - 1);
+                j--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, j + 1);
+                j++;
+            }
+            if (!isDeleting && j === currentPhrase.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && j === 0) {
+                isDeleting = false;
+                i = (i + 1) % phrases.length;
+            }
+            setTimeout(type, isDeleting ? 50 : 100);
+        }
+        type();
+
+        // Gallery Auto-Change (2s)
         let current = 0;
         const slides = document.querySelectorAll('.gallery-slide');
         let timer;
@@ -172,7 +210,8 @@
         document.getElementById('galleryBox').addEventListener('mouseenter', stop);
         document.getElementById('galleryBox').addEventListener('mouseleave', start);
         start();
-        ScrollReveal().reveal('section', { delay: 150, distance: '30px', origin: 'bottom' });
+
+        ScrollReveal().reveal('section', { delay: 100, distance: '30px', origin: 'bottom', duration: 800 });
     </script>
 </body>
 </html>
