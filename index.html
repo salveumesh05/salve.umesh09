@@ -40,7 +40,7 @@
         .typewriter {
             font-size: 1.2rem;
             font-weight: 400;
-            color: #74b9ff; /* Brighter blue for readability on dark */
+            color: #74b9ff; 
             min-height: 1.5rem;
             margin-top: 10px;
             letter-spacing: 1px;
@@ -82,6 +82,7 @@
         .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: 0.3s; margin: 10px; cursor: pointer; border: none; font-family: 'Poppins', sans-serif;}
         .btn-primary { background: var(--primary-blue); color: white; box-shadow: 0 10px 20px rgba(9, 132, 227, 0.2); }
         .btn-outline { background: transparent; border: 2px solid var(--primary-blue); color: white; }
+        .btn-linkedin { background: #0077b5; color: white; }
         .btn:hover { transform: translateY(-3px); }
 
         footer { text-align: center; padding: 40px; color: #dfe6e9; font-size: 0.8rem; opacity: 0.6; }
@@ -163,6 +164,7 @@
             <h2>Let's Connect</h2>
             <h1 style="font-size: 2.2rem; margin-bottom: 25px;">Ready to drive your business goals together?</h1>
             <a href="mailto:salve.umesh05@gmail.com" class="btn btn-primary">Let's Chat</a>
+            <a href="https://www.linkedin.com/in/umesh-salve-98512396" target="_blank" class="btn btn-linkedin"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
             <a href="mailto:salve.umesh05@gmail.com?subject=Call%20Back%20Request&body=Hello%20Umesh,%20I%20would%20like%20to%20request%20a%20call%20back.%20My%20number%20is:" class="btn btn-outline">Request for a call back</a>
             <p style="margin-top: 25px; font-weight: 600; color: #74b9ff;">+91 8553570365</p>
         </section>
@@ -172,7 +174,6 @@
     <footer>&copy; 2026 Umesh Salve | Strategic Consulting</footer>
 
     <script>
-        // Typewriter Logic
         const textElement = document.getElementById('typewriter');
         const phrases = ["Hello, my name is Umesh Salve.", "Welcome, happy to see you!", "I am Umesh Salve, nice to see you."];
         let i = 0; let j = 0; let isDeleting = false;
@@ -196,7 +197,6 @@
         }
         type();
 
-        // Gallery Auto-Change (2s)
         let current = 0;
         const slides = document.querySelectorAll('.gallery-slide');
         let timer;
