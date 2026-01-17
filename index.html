@@ -3,22 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umesh Salve | TA Leader & Consultant</title>
+    <title>Umesh Salve | Talent Acquisition Leader & Consultant</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-blue: #0984e3;
             --dark-grey: #2d3436;
-            --light-grey: #f1f2f6;
+            --light-blue-bg: #e1f5fe;
             --white: #ffffff;
-            --accent-blue: #74b9ff;
+            --accent-gradient: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
         }
 
-        body { font-family: 'Poppins', sans-serif; background-color: var(--white); color: var(--dark-grey); margin: 0; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--light-blue-bg); /* Colourful background */
+            color: var(--dark-grey); 
+            margin: 0; 
+            line-height: 1.6; 
+        }
 
-        header { text-align: center; padding: 60px 20px; background: var(--light-grey); border-radius: 0 0 50px 50px; margin-bottom: 40px; }
-        .profile-pic { width: 180px; height: 180px; border-radius: 50%; border: 5px solid var(--white); box-shadow: 0 10px 20px rgba(0,0,0,0.1); object-fit: cover; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+
+        header { 
+            text-align: center; 
+            padding: 60px 20px; 
+            background: var(--accent-gradient); 
+            color: white;
+            border-radius: 30px; 
+            margin-bottom: 40px; 
+            box-shadow: 0 10px 30px rgba(9, 132, 227, 0.2);
+        }
+
+        .profile-pic { 
+            width: 180px; 
+            height: 180px; 
+            border-radius: 50%; 
+            border: 6px solid rgba(255,255,255,0.3); 
+            object-fit: cover; 
+            margin-bottom: 20px;
+        }
         
         .action-buttons { margin-top: 25px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         .btn { padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-flex; align-items: center; cursor: pointer; border: none; }
@@ -26,27 +49,52 @@
         .btn-cv { background: var(--dark-grey); color: white; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        section { margin-bottom: 60px; }
-        h2 { border-left: 5px solid var(--primary-blue); padding-left: 15px; margin-bottom: 30px; text-transform: uppercase; font-size: 1.3rem; color: var(--primary-blue); }
+        section { 
+            background: var(--white); 
+            padding: 40px; 
+            border-radius: 25px; 
+            margin-bottom: 40px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 { 
+            color: var(--primary-blue); 
+            text-transform: uppercase; 
+            font-size: 1.4rem; 
+            margin-top: 0;
+            border-bottom: 3px solid var(--primary-blue);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
+        }
 
         /* Services Grid */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .service-card { background: var(--light-grey); padding: 25px; border-radius: 20px; transition: 0.3s; border-bottom: 5px solid transparent; }
-        .service-card:hover { transform: translateY(-5px); border-bottom: 5px solid var(--primary-blue); background: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .service-card { background: #f1f9ff; padding: 25px; border-radius: 20px; border-left: 5px solid var(--primary-blue); }
         .service-card h3 { color: var(--primary-blue); margin-top: 0; font-size: 1.1rem; }
-        .service-card p { font-size: 0.9rem; margin-bottom: 0; }
 
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; }
-        .skill-item { background: var(--light-grey); padding: 15px; border-radius: 12px; text-align: center; font-weight: 600; border-bottom: 4px solid var(--primary-blue); }
-
-        .card { background: var(--white); padding: 30px; border-radius: 20px; margin-bottom: 25px; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        /* Journey & Education Cards */
+        .card { border-bottom: 1px solid #eee; padding: 20px 0; }
+        .card:last-child { border-bottom: none; }
         .card h3 { margin: 0; color: var(--primary-blue); font-size: 1.2rem; }
-        .card-meta { font-size: 0.85rem; color: #b2bec3; margin-bottom: 15px; font-weight: 600; }
+        .card-meta { font-size: 0.85rem; color: #b2bec3; margin-bottom: 10px; font-weight: 600; }
 
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; }
+        /* Tools Grid */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
+        .skill-item { 
+            background: var(--accent-gradient); 
+            color: white;
+            padding: 15px; 
+            border-radius: 15px; 
+            text-align: center; 
+            font-weight: 600; 
+            font-size: 0.9rem;
+        }
 
-        footer { text-align: center; padding: 50px; background: var(--dark-grey); color: white; margin-top: 50px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 20px; }
+
+        footer { text-align: center; padding: 50px; background: var(--dark-grey); color: white; border-radius: 30px; }
     </style>
 </head>
 <body>
@@ -67,23 +115,23 @@
         <div class="services-grid">
             <div class="service-card">
                 <h3>Recruitment Consulting</h3>
-                <p>Strategic hiring models for IT/Non-IT sectors, leadership hiring, and scaling talent acquisition for global organizations like Shell and Capco.</p>
+                <p>Strategic IT/Non-IT hiring and leadership delivery for global organizations.</p>
             </div>
             <div class="service-card">
                 <h3>Resume Writing</h3>
-                <p>Professional resume and portfolio development tailored to pass ATS filters and capture recruiter attention in niche industries.</p>
+                <p>Developing ATS-optimized resumes that capture recruiter attention.</p>
             </div>
             <div class="service-card">
                 <h3>Software Development Projects</h3>
-                <p>Managing the lifecycle of AI-powered talent solutions and product roadmaps, as demonstrated at Craftedrobo Technologies.</p>
+                <p>Leading the delivery of AI-powered talent solutions and product roadmaps.</p>
             </div>
             <div class="service-card">
-                <h3>Business Analysis</h3>
-                <p>Requirement gathering, client discovery, and aligning technical roadmaps with business revenue goals for talent-tech platforms.</p>
+                <h3>Business Analysis Services</h3>
+                <p>Bridging technical roadmaps with business revenue and client objectives.</p>
             </div>
             <div class="service-card">
                 <h3>Interview Services</h3>
-                <p>Expert interview coaching, panel management, and candidate assessment strategies to identify high-potential leadership talent.</p>
+                <p>Coaching, panel management, and high-impact candidate assessment strategies.</p>
             </div>
         </div>
     </section>
@@ -93,12 +141,22 @@
         <div class="card">
             <h3>Business & Product Lead</h3>
             <div class="card-meta">Craftedrobo Technologies | Oct 2023 - Present</div>
-            <p>Directing AI-powered Job Portal development and business strategy.</p>
+            <p>Directing AI-powered talent solution delivery and product strategy.</p>
         </div>
         <div class="card">
             <h3>Recruiter (Contract)</h3>
             <div class="card-meta">Shell India Markets Pvt Ltd | April 2022 - June 2023</div>
-            <p>Led leadership hiring for AI/ML and Data Science across India, Europe, and APAC.</p>
+            <p>Managed leadership hiring for niche AI/ML and Data Science domains across global regions.</p>
+        </div>
+        <div class="card">
+            <h3>Senior Talent Acquisition</h3>
+            <div class="card-meta">Capco Technologies | 2021 - 2022</div>
+            <p>Delivered 30 business-critical hires in 3 months through intensive recruitment events.</p>
+        </div>
+        <div class="card">
+            <h3>Talent Acquisition Specialist</h3>
+            <div class="card-meta">Infosys | Previous Experience</div>
+            <p>Full-cycle recruitment delivery for IT and business consulting verticals.</p>
         </div>
     </section>
 
@@ -107,9 +165,10 @@
         <div class="skills-grid">
             <div class="skill-item">Workday</div>
             <div class="skill-item">Greenhouse</div>
+            <div class="skill-item">Kenexa</div>
+            <div class="skill-item">Taleo</div>
             <div class="skill-item">Power BI</div>
             <div class="skill-item">Talent Insights</div>
-            <div class="skill-item">Salesforce</div>
         </div>
     </section>
 
@@ -125,17 +184,17 @@
     <section id="gallery">
         <h2>Personal Gallery</h2>
         <div class="gallery">
-            <img src="photo2.jpeg.jpeg" alt="Personal Photo 1">
-            <img src="photo3.jpeg.png" alt="Personal Photo 2">
-            <img src="photo4.jpeg.jpeg" alt="Personal Photo 3">
+            <img src="photo2.jpeg.jpeg" alt="Gallery 1">
+            <img src="photo3.jpeg.png" alt="Gallery 2">
+            <img src="photo4.jpeg.jpeg" alt="Gallery 3">
         </div>
     </section>
 
     <footer>
-        <h2>Get in Touch</h2>
+        <h2>Connect With Me</h2>
         <p>Email: salve.umesh05@gmail.com | Phone: +91 8553570365</p>
-        <a href="mailto:salve.umesh05@gmail.com" class="btn btn-linkedin">Send an Inquiry</a>
-        <p style="margin-top:25px; font-size: 0.8rem;">&copy; 2026 Umesh Salve. All Rights Reserved.</p>
+        <a href="mailto:salve.umesh05@gmail.com" class="btn btn-linkedin">Send Email Inquiry</a>
+        <p style="margin-top:20px; font-size: 0.8rem;">&copy; 2026 Umesh Salve. All Rights Reserved.</p>
     </footer>
 </div>
 
