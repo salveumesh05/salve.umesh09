@@ -9,102 +9,76 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0984e3;
-            --dark: #2d3436;
-            --bg: #f8fbff;
-            --white: #ffffff;
-            --accent: #00cec9;
+            --primary: #0984e3; --dark: #2d3436; --bg: #f0f4f8; --white: #ffffff;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--dark); margin: 0; overflow-x: hidden; }
 
-        /* Sleek Glass Navigation */
+        /* Glass Nav */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(15px);
             padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.05);
-            display: flex; justify-content: center; gap: 30px;
+            display: flex; justify-content: center; gap: 25px;
         }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
 
-        /* Executive Hero Section */
+        /* Hero */
         .hero {
-            height: 100vh; display: flex; flex-direction: column; justify-content: center;
+            height: 80vh; display: flex; flex-direction: column; justify-content: center;
             align-items: center; background: linear-gradient(135deg, #0984e3 0%, #00cec9 100%);
-            color: white; text-align: center; border-radius: 0 0 100px 100px; padding: 20px;
+            color: white; text-align: center; border-radius: 0 0 80px 80px;
         }
-        .profile-pic {
-            width: 210px; height: 210px; border-radius: 50%;
-            border: 10px solid rgba(255,255,255,0.15); object-fit: cover; margin-bottom: 25px;
-            transition: transform 0.5s ease;
-        }
-        .profile-pic:hover { transform: scale(1.05) rotate(3deg); }
-        .hero h1 { font-size: 3.5rem; margin: 0; font-weight: 600; }
+        .profile-pic { width: 180px; height: 180px; border-radius: 50%; border: 8px solid rgba(255,255,255,0.2); object-fit: cover; margin-bottom: 20px; }
 
-        .container { max-width: 1100px; margin: -50px auto 0; padding: 0 20px 100px; }
+        .container { max-width: 1200px; margin: -50px auto 0; padding: 0 20px 100px; }
+        section { background: var(--white); padding: 40px; border-radius: 30px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h2 { color: var(--primary); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; border-bottom: 2px solid #f0f4f8; padding-bottom: 10px; }
 
-        /* Section Styling with Reveal */
-        section {
-            background: var(--white); padding: 60px; border-radius: 40px;
-            margin-bottom: 50px; box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-            transition: 0.4s;
-        }
-        h2 { color: var(--primary); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; }
+        /* Continuous Sliding Animation */
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .slider-container { overflow: hidden; width: 100%; position: relative; white-space: nowrap; padding: 20px 0; }
+        .slider-track { display: flex; width: max-content; animation: scroll 30s linear infinite; }
+        .slider-container:hover .slider-track { animation-play-state: paused; }
 
-        /* Professional Services Pop-up Cards */
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-        .service-card {
-            background: #f9fbff; padding: 30px; border-radius: 25px; text-align: center;
-            border: 1px solid #eef2f7; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .service-card:hover { transform: translateY(-15px) scale(1.03); background: white; border-color: var(--primary); box-shadow: 0 15px 30px rgba(9, 132, 227, 0.1); }
-        .service-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 20px; }
-        .service-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        /* Tech & Journey Items */
+        .slide-item { background: #f9fbff; padding: 15px 30px; border-radius: 15px; margin-right: 20px; border: 1px solid #eef2f7; display: flex; align-items: center; gap: 12px; font-weight: 600; }
+        .slide-item img { height: 25px; width: auto; }
+        .journey-item { background: #fff; border-left: 4px solid var(--primary); }
 
-        /* Dynamic Tech Stack Slider */
-        .tech-track { display: flex; gap: 20px; overflow-x: auto; padding: 10px 0 30px; scrollbar-width: none; }
-        .tech-track::-webkit-scrollbar { display: none; }
-        .tech-pill {
-            background: white; border: 1px solid #dfe6e9; padding: 15px 30px; 
-            border-radius: 20px; font-weight: 600; display: flex; align-items: center; 
-            gap: 15px; flex-shrink: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-        .tech-pill img { height: 25px; width: auto; }
+        /* Service Pop-up */
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .service-card { background: #f9fbff; padding: 25px; border-radius: 20px; text-align: center; transition: 0.3s; border: 1px solid #eef2f7; }
+        .service-card:hover { transform: scale(1.05); border-color: var(--primary); background: white; }
+        .service-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 10px; display: block; }
 
-        /* Interactive Journey */
-        .exp-card { padding: 25px; border-left: 4px solid var(--primary); margin-bottom: 20px; transition: 0.3s; }
-        .exp-card:hover { background: #f0f7ff; padding-left: 35px; border-radius: 0 20px 20px 0; }
+        /* Auto-Changing Gallery */
+        .gallery-container { position: relative; width: 100%; max-width: 500px; margin: 0 auto; height: 600px; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .gallery-slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; object-fit: cover; }
+        .gallery-slide.active { opacity: 1; }
 
-        /* Gallery Slider */
-        .gallery { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scroll-snap-type: x mandatory; }
-        .gallery img { width: 320px; height: 450px; object-fit: cover; border-radius: 30px; flex-shrink: 0; scroll-snap-align: start; }
-
-        /* CTA / Contact */
-        .contact-cta { text-align: center; padding: 80px 20px; }
-        .btn { padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-block; cursor: pointer; }
-        .btn-primary { background: var(--primary); color: white; margin: 10px; }
-        .btn-outline { border: 2px solid var(--primary); color: var(--primary); margin: 10px; }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(9, 132, 227, 0.2); }
-
-        footer { background: var(--dark); color: white; padding: 60px 20px; text-align: center; border-radius: 60px 60px 0 0; }
+        /* Contact */
+        .contact-cta { text-align: center; padding: 40px 0; }
+        .btn { padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: 0.3s; cursor: pointer; border: none; }
+        .btn-primary { background: var(--primary); color: white; }
+        footer { background: var(--dark); color: white; padding: 40px; text-align: center; border-radius: 40px 40px 0 0; }
     </style>
 </head>
 <body>
 
     <nav>
         <a href="#services">Services</a>
-        <a href="#journey">Experience</a>
+        <a href="#journey">Journey</a>
         <a href="#toolkit">Technology</a>
-        <a href="#contact">Consult</a>
+        <a href="#gallery">Gallery</a>
     </nav>
 
     <div class="hero">
         <img src="profile.jpeg" alt="Umesh Salve" class="profile-pic">
         <h1>Umesh Salve</h1>
-        <p>Strategic Talent Acquisition & Project Consultant</p>
-        <a href="Resume.pdf" download class="btn" style="background: white; color: var(--primary);">Access Full CV</a>
+        <p>Strategic TA & Project Consultant</p>
+        <a href="Resume.pdf" download class="btn" style="background:white; color:var(--primary); margin-top:15px;">Access Full CV</a>
     </div>
 
     <div class="container">
@@ -112,64 +86,87 @@
         <section id="services">
             <h2>Professional Expertise</h2>
             <div class="service-grid">
-                <div class="service-card"><i class="fas fa-handshake"></i><h3>Recruitment Consulting</h3><p>Scaling global TA operations.</p></div>
-                <div class="service-card"><i class="fas fa-id-card"></i><h3>Resume Writing</h3><p>ATS-optimized professional branding.</p></div>
-                <div class="service-card"><i class="fas fa-terminal"></i><h3>Software Projects</h3><p>Leading AI talent-tech roadmaps.</p></div>
-                <div class="service-card"><i class="fas fa-microchip"></i><h3>Interview Panels</h3><p>Third-party technical assessment solutions.</p></div>
-                <div class="service-card"><i class="fas fa-chart-line"></i><h3>Business Analysis</h3><p>Bridging technical & revenue goals.</p></div>
+                <div class="service-card"><i class="fas fa-handshake"></i><h3>Recruitment Consulting</h3></div>
+                <div class="service-card"><i class="fas fa-id-card"></i><h3>Resume Writing</h3></div>
+                <div class="service-card"><i class="fas fa-terminal"></i><h3>Software Projects</h3></div>
+                <div class="service-card"><i class="fas fa-microchip"></i><h3>Interview Panels</h3></div>
+                <div class="service-card"><i class="fas fa-chart-line"></i><h3>Business Analysis</h3></div>
             </div>
         </section>
 
         <section id="journey">
             <h2>Professional Journey</h2>
-            <div class="exp-card"><h3>Business & Product Lead | Craftedrobo</h3><p>2023 - Present</p></div>
-            <div class="exp-card"><h3>Recruiter (Contract) | Shell India</h3><p>2022 - 2023</p></div>
-            <div class="exp-card"><h3>Senior Talent Acquisition | Capco</h3><p>2021 - 2022</p></div>
-            <div class="exp-card"><h3>Talent Acquisition Specialist | Infosys</h3><p>Strategic Delivery Focus</p></div>
+            <div class="slider-container">
+                <div class="slider-track">
+                    <div class="slide-item journey-item">Business & Product Lead | Craftedrobo (2023-Present)</div>
+                    <div class="slide-item journey-item">Recruiter (Contract) | Shell India (2022-2023)</div>
+                    <div class="slide-item journey-item">Senior TA | Capco (2021-2022)</div>
+                    <div class="slide-item journey-item">TA Specialist | Infosys</div>
+                    <div class="slide-item journey-item">Business & Product Lead | Craftedrobo (2023-Present)</div>
+                    <div class="slide-item journey-item">Recruiter (Contract) | Shell India (2022-2023)</div>
+                    <div class="slide-item journey-item">Senior TA | Capco (2021-2022)</div>
+                </div>
+            </div>
         </section>
 
         <section id="toolkit">
             <h2>Modern Tech Stack</h2>
-            <p style="font-size: 0.8rem; color: #b2bec3; margin-bottom: 20px;">ATS, CRM & ANALYTICS</p>
-            <div class="tech-track">
-                <div class="tech-pill"><img src="https://www.vectorlogo.zone/logos/workday/workday-icon.svg"> Workday</div>
-                <div class="tech-pill"><img src="https://www.vectorlogo.zone/logos/greenhouseio/greenhouseio-icon.svg"> Greenhouse</div>
-                <div class="tech-pill"><img src="https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg"> Salesforce</div>
-                <div class="tech-pill"><img src="https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg"> Power BI</div>
-                <div class="tech-pill">SuccessFactors</div>
-                <div class="tech-pill">Taleo</div>
-                <div class="tech-pill">Kenexa</div>
-                <div class="tech-pill">Talent Insights</div>
+            <div class="slider-container">
+                <div class="slider-track" style="animation-duration: 20s;">
+                    <div class="slide-item"><img src="https://www.vectorlogo.zone/logos/workday/workday-icon.svg">Workday</div>
+                    <div class="slide-item"><img src="https://www.vectorlogo.zone/logos/greenhouseio/greenhouseio-icon.svg">Greenhouse</div>
+                    <div class="slide-item"><img src="https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg">Salesforce</div>
+                    <div class="slide-item"><img src="https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg">Power BI</div>
+                    <div class="slide-item">SuccessFactors</div>
+                    <div class="slide-item">Taleo</div>
+                    <div class="slide-item">Kenexa</div>
+                    <div class="slide-item"><img src="https://www.vectorlogo.zone/logos/workday/workday-icon.svg">Workday</div>
+                    <div class="slide-item"><img src="https://www.vectorlogo.zone/logos/greenhouseio/greenhouseio-icon.svg">Greenhouse</div>
+                    <div class="slide-item"><img src="https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg">Salesforce</div>
+                </div>
             </div>
         </section>
 
         <section id="gallery">
             <h2>Personal Gallery</h2>
-            <div class="gallery">
-                <img src="photo2.jpeg" alt="Personal">
-                <img src="photo3.jpeg" alt="Personal">
-                <img src="photo4.jpeg" alt="Personal">
+            <div class="gallery-container" id="galleryContainer">
+                <img src="photo2.jpeg" class="gallery-slide active">
+                <img src="photo3.jpeg" class="gallery-slide">
+                <img src="photo4.jpeg" class="gallery-slide">
             </div>
+            <p style="text-align: center; color: #b2bec3; font-size: 0.8rem; margin-top: 15px;">Auto-play (4s) | Hover to Pause</p>
         </section>
 
         <section id="contact" class="contact-cta">
-            <h2>Strategic Collaboration</h2>
-            <p>Direct Dial: <strong>+91 8553570365</strong></p>
-            <a href="mailto:salve.umesh05@gmail.com" class="btn btn-primary">Initiate Inquiry</a>
-            <a href="https://www.linkedin.com/in/umesh-salve-98512396" target="_blank" class="btn btn-outline">LinkedIn Network</a>
+            <h2>Direct Inquiry</h2>
+            <p><strong>+91 8553570365</strong></p>
+            <a href="mailto:salve.umesh05@gmail.com" class="btn btn-primary">Initiate Email</a>
         </section>
 
     </div>
 
-    <footer>
-        <p>&copy; 2026 Umesh Salve | High-Impact TA Delivery</p>
-    </footer>
+    <footer><p>&copy; 2026 Umesh Salve</p></footer>
 
     <script>
-        // Smooth Reveal Logic
-        ScrollReveal().reveal('section', { 
-            delay: 200, distance: '50px', origin: 'bottom', duration: 1000, interval: 150 
-        });
+        // Gallery Auto-Change Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.gallery-slide');
+        let timer;
+
+        function showNextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function startTimer() { timer = setInterval(showNextSlide, 4000); }
+        function stopTimer() { clearInterval(timer); }
+
+        document.getElementById('galleryContainer').addEventListener('mouseenter', stopTimer);
+        document.getElementById('galleryContainer').addEventListener('mouseleave', startTimer);
+        
+        startTimer();
+        ScrollReveal().reveal('section', { delay: 200, distance: '50px', origin: 'bottom' });
     </script>
 </body>
 </html>
