@@ -3,200 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umesh Salve | Talent Acquisition Leader & Consultant</title>
+    <title>Umesh Salve | Strategic TA Leader</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         :root {
-            --primary-blue: #0984e3;
-            --dark-grey: #2d3436;
-            --light-blue-bg: #e1f5fe;
+            --primary: #0984e3;
+            --dark: #2d3436;
+            --bg: #e1f5fe;
             --white: #ffffff;
-            --accent-gradient: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            --gradient: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
         }
 
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            background-color: var(--light-blue-bg); /* Colourful background */
-            color: var(--dark-grey); 
-            margin: 0; 
-            line-height: 1.6; 
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--dark); margin: 0; overflow-x: hidden; }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-
-        header { 
-            text-align: center; 
-            padding: 60px 20px; 
-            background: var(--accent-gradient); 
+        /* Opening "Hello" Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--gradient);
             color: white;
-            border-radius: 30px; 
-            margin-bottom: 40px; 
-            box-shadow: 0 10px 30px rgba(9, 132, 227, 0.2);
+            text-align: center;
+            border-radius: 0 0 50px 50px;
+            padding: 20px;
         }
 
-        .profile-pic { 
-            width: 180px; 
-            height: 180px; 
-            border-radius: 50%; 
-            border: 6px solid rgba(255,255,255,0.3); 
-            object-fit: cover; 
-            margin-bottom: 20px;
+        .profile-pic {
+            width: 200px; height: 200px; border-radius: 50%;
+            border: 8px solid rgba(255,255,255,0.2);
+            object-fit: cover; margin-bottom: 20px;
+            transition: transform 0.5s ease;
         }
-        
-        .action-buttons { margin-top: 25px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn { padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-flex; align-items: center; cursor: pointer; border: none; }
-        .btn-linkedin { background: #0077b5; color: white; }
-        .btn-cv { background: var(--dark-grey); color: white; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .profile-pic:hover { transform: scale(1.05); }
 
-        section { 
-            background: var(--white); 
-            padding: 40px; 
-            border-radius: 25px; 
-            margin-bottom: 40px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+        .hero h1 { font-size: 3.5rem; margin: 0; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; }
 
-        h2 { 
-            color: var(--primary-blue); 
-            text-transform: uppercase; 
-            font-size: 1.4rem; 
-            margin-top: 0;
-            border-bottom: 3px solid var(--primary-blue);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 30px;
+        /* Main Container */
+        .container { max-width: 1000px; margin: -50px auto 0; padding: 0 20px 100px; }
+
+        section {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            opacity: 0; /* Handled by ScrollReveal */
         }
 
-        /* Services Grid */
+        h2 { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; border-bottom: 3px solid var(--primary); display: inline-block; margin-bottom: 30px; }
+
+        /* Services Slide Grid */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .service-card { background: #f1f9ff; padding: 25px; border-radius: 20px; border-left: 5px solid var(--primary-blue); }
-        .service-card h3 { color: var(--primary-blue); margin-top: 0; font-size: 1.1rem; }
+        .service-card {
+            background: #f8fbff; padding: 30px; border-radius: 20px;
+            border-bottom: 5px solid transparent; transition: 0.3s;
+        }
+        .service-card:hover { border-bottom-color: var(--primary); transform: translateY(-10px); background: white; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
-        /* Journey & Education Cards */
-        .card { border-bottom: 1px solid #eee; padding: 20px 0; }
-        .card:last-child { border-bottom: none; }
-        .card h3 { margin: 0; color: var(--primary-blue); font-size: 1.2rem; }
-        .card-meta { font-size: 0.85rem; color: #b2bec3; margin-bottom: 10px; font-weight: 600; }
+        /* Professional Journey Cards */
+        .job-card { padding: 20px 0; border-bottom: 1px solid #eee; }
+        .job-card:last-child { border-bottom: none; }
+        .job-card h3 { color: var(--primary); margin: 0; }
+        .job-card span { font-size: 0.85rem; font-weight: 600; color: #b2bec3; }
 
-        /* Tools Grid */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
-        .skill-item { 
-            background: var(--accent-gradient); 
-            color: white;
-            padding: 15px; 
-            border-radius: 15px; 
-            text-align: center; 
-            font-weight: 600; 
-            font-size: 0.9rem;
+        /* Skills/Tools Badges */
+        .tools-flex { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tool-tag {
+            background: var(--gradient); color: white;
+            padding: 10px 20px; border-radius: 50px; font-weight: 600;
         }
 
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
-        .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 20px; }
+        /* Image Slide Gallery */
+        .gallery { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scroll-snap-type: x mandatory; }
+        .gallery img { 
+            width: 300px; height: 400px; object-fit: cover; 
+            border-radius: 20px; scroll-snap-align: start;
+            flex-shrink: 0;
+        }
 
-        footer { text-align: center; padding: 50px; background: var(--dark-grey); color: white; border-radius: 30px; }
+        /* Fixed Contact Buttons */
+        .action-bar { margin-top: 30px; display: flex; gap: 15px; justify-content: center; }
+        .btn { 
+            padding: 15px 30px; border-radius: 50px; text-decoration: none; 
+            font-weight: 600; color: white; transition: 0.3s;
+        }
+        .btn-blue { background: #0077b5; }
+        .btn-dark { background: var(--dark); }
+        .btn:hover { filter: brightness(1.2); transform: scale(1.05); }
+
+        footer { text-align: center; padding: 60px 20px; background: var(--dark); color: white; border-radius: 40px 40px 0 0; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
+    <div class="hero">
         <img src="profile.jpeg.jpeg" alt="Umesh Salve" class="profile-pic">
-        <h1>Umesh Salve</h1>
-        <p>Strategic Talent Acquisition Leader & Consultant</p>
-        <div class="action-buttons">
-            <a href="https://www.linkedin.com/in/umesh-salve-98512396" target="_blank" class="btn btn-linkedin">LinkedIn Profile</a>
-            <a href="Umesh Salve_Updated_CV-TA1.pdf" download class="btn btn-cv">Download Resume (PDF)</a>
+        <h1 class="reveal-text">Hello, I'm Umesh.</h1>
+        <p class="reveal-text">Strategic Talent Acquisition Leader | 10+ Years Experience</p>
+        <div class="action-bar">
+            <a href="https://www.linkedin.com/in/umesh-salve-98512396" target="_blank" class="btn btn-blue">LinkedIn</a>
+            <a href="Umesh Salve_Updated_CV-TA1.pdf" download class="btn btn-dark">Download CV</a>
         </div>
-    </header>
+    </div>
 
-    <section id="services">
-        <h2>Professional Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Recruitment Consulting</h3>
-                <p>Strategic IT/Non-IT hiring and leadership delivery for global organizations.</p>
+    <div class="container">
+        
+        <section id="services">
+            <h2>Expert Services</h2>
+            <div class="services-grid">
+                <div class="service-card"><h3>Recruitment Consulting</h3><p>Scaling global TA operations for Fortune 500s.</p></div>
+                <div class="service-card"><h3>Resume Writing</h3><p>Crafting high-impact, ATS-optimized professional brands.</p></div>
+                <div class="service-card"><h3>Software Projects</h3><p>Leading AI-driven talent-tech product roadmaps.</p></div>
+                <div class="service-card"><h3>Business Analysis</h3><p>Bridging technical solutions with business revenue goals.</p></div>
+                <div class="service-card"><h3>Interview Coaching</h3><p>Executive assessment and panel management strategies.</p></div>
             </div>
-            <div class="service-card">
-                <h3>Resume Writing</h3>
-                <p>Developing ATS-optimized resumes that capture recruiter attention.</p>
-            </div>
-            <div class="service-card">
-                <h3>Software Development Projects</h3>
-                <p>Leading the delivery of AI-powered talent solutions and product roadmaps.</p>
-            </div>
-            <div class="service-card">
-                <h3>Business Analysis Services</h3>
-                <p>Bridging technical roadmaps with business revenue and client objectives.</p>
-            </div>
-            <div class="service-card">
-                <h3>Interview Services</h3>
-                <p>Coaching, panel management, and high-impact candidate assessment strategies.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experience">
-        <h2>Professional Journey</h2>
-        <div class="card">
-            <h3>Business & Product Lead</h3>
-            <div class="card-meta">Craftedrobo Technologies | Oct 2023 - Present</div>
-            <p>Directing AI-powered talent solution delivery and product strategy.</p>
-        </div>
-        <div class="card">
-            <h3>Recruiter (Contract)</h3>
-            <div class="card-meta">Shell India Markets Pvt Ltd | April 2022 - June 2023</div>
-            <p>Managed leadership hiring for niche AI/ML and Data Science domains across global regions.</p>
-        </div>
-        <div class="card">
-            <h3>Senior Talent Acquisition</h3>
-            <div class="card-meta">Capco Technologies | 2021 - 2022</div>
-            <p>Delivered 30 business-critical hires in 3 months through intensive recruitment events.</p>
-        </div>
-        <div class="card">
-            <h3>Talent Acquisition Specialist</h3>
-            <div class="card-meta">Infosys | Previous Experience</div>
-            <p>Full-cycle recruitment delivery for IT and business consulting verticals.</p>
-        </div>
-    </section>
+        <section id="journey">
+            <h2>Professional Journey</h2>
+            <div class="job-card">
+                <h3>Business & Product Lead</h3>
+                <span>Craftedrobo Technologies | 2023 - Present</span>
+                <p>Spearheading AI-powered job portals and hiring automation.</p>
+            </div>
+            <div class="job-card">
+                <h3>Recruiter (Contract)</h3>
+                <span>Shell India Markets | 2022 - 2023</span>
+                <p>Leadership hiring for niche AI/ML and Data Science across APAC & Europe.</p>
+            </div>
+            <div class="job-card">
+                <h3>Senior Talent Acquisition</h3>
+                <span>Capco Technologies | 2021 - 2022</span>
+                <p>Consulting and delivery for business-critical leadership roles.</p>
+            </div>
+            <div class="job-card">
+                <h3>Talent Acquisition Specialist</h3>
+                <span>Infosys</span>
+                <p>Managing full-cycle recruitment for IT and consulting verticals.</p>
+            </div>
+        </section>
 
-    <section id="skills">
-        <h2>ATS & Reporting Tools</h2>
-        <div class="skills-grid">
-            <div class="skill-item">Workday</div>
-            <div class="skill-item">Greenhouse</div>
-            <div class="skill-item">Kenexa</div>
-            <div class="skill-item">Taleo</div>
-            <div class="skill-item">Power BI</div>
-            <div class="skill-item">Talent Insights</div>
-        </div>
-    </section>
+        <section id="tools">
+            <h2>ATS & Analytical Toolkit</h2>
+            <div class="tools-flex">
+                <div class="tool-tag">Workday</div>
+                <div class="tool-tag">Greenhouse</div>
+                <div class="tool-tag">Kenexa</div>
+                <div class="tool-tag">Taleo</div>
+                <div class="tool-tag">Power BI</div>
+                <div class="tool-tag">Talent Insights</div>
+            </div>
+        </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <div class="card">
-            <h3>Bachelor's in Commerce (B.Com)</h3>
-            <div class="card-meta">Karnataka University, Dharwad</div>
-            <p>Nehru Arts, Science, Commerce and BBA College, Hubli.</p>
-        </div>
-    </section>
+        <section id="education">
+            <h2>Education</h2>
+            <div class="job-card">
+                <h3>Bachelor's in Commerce (B.Com)</h3>
+                <span>Karnataka University, Dharwad</span>
+                <p>Nehru Arts, Science, Commerce and BBA College, Hubli.</p>
+            </div>
+        </section>
 
-    <section id="gallery">
-        <h2>Personal Gallery</h2>
-        <div class="gallery">
-            <img src="photo2.jpeg.jpeg" alt="Gallery 1">
-            <img src="photo3.jpeg.png" alt="Gallery 2">
-            <img src="photo4.jpeg.jpeg" alt="Gallery 3">
-        </div>
-    </section>
+        <section id="gallery">
+            <h2>Personal Gallery</h2>
+            <div class="gallery">
+                <img src="photo2.jpeg.jpeg" alt="Umesh Gallery">
+                <img src="photo3.jpeg.png" alt="Umesh Gallery">
+                <img src="photo4.jpeg.jpeg" alt="Umesh Gallery">
+            </div>
+            <p style="text-align: center; color: #b2bec3; font-size: 0.8rem;">(Swipe to view more)</p>
+        </section>
+
+    </div>
 
     <footer>
-        <h2>Connect With Me</h2>
+        <h2>Let's Build Your Team.</h2>
         <p>Email: salve.umesh05@gmail.com | Phone: +91 8553570365</p>
-        <a href="mailto:salve.umesh05@gmail.com" class="btn btn-linkedin">Send Email Inquiry</a>
-        <p style="margin-top:20px; font-size: 0.8rem;">&copy; 2026 Umesh Salve. All Rights Reserved.</p>
+        <a href="mailto:salve.umesh05@gmail.com" class="btn btn-blue">Work With Me</a>
+        <p style="margin-top: 40px; opacity: 0.5;">&copy; 2026 Umesh Salve. All Rights Reserved.</p>
     </footer>
-</div>
 
+    <script>
+        // Animations like the reference site
+        ScrollReveal().reveal('section', { 
+            delay: 200, 
+            distance: '50px', 
+            origin: 'bottom', 
+            duration: 1000,
+            interval: 200 
+        });
+        ScrollReveal().reveal('.hero h1, .hero p', { delay: 100, origin: 'top', distance: '30px' });
+    </script>
 </body>
 </html>
