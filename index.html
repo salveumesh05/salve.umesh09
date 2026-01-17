@@ -6,77 +6,195 @@
     <title>Umesh Salve | Strategic TA Leader</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #0984e3; --dark: #2d3436; --bg: #e1f5fe; --white: #ffffff; --gradient: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
+        :root {
+            --primary: #0984e3;
+            --dark: #2d3436;
+            --bg: #e1f5fe;
+            --glass: rgba(255, 255, 255, 0.7);
+            --gradient: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--dark); margin: 0; overflow-x: hidden; }
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: var(--gradient); color: white; text-align: center; border-radius: 0 0 80px 80px; padding: 20px; }
-        .profile-pic { width: 220px; height: 220px; border-radius: 50%; border: 10px solid rgba(255,255,255,0.2); object-fit: cover; margin-bottom: 25px; }
-        .hero h1 { font-size: 4rem; margin: 0; font-weight: 600; }
-        .container { max-width: 1000px; margin: -60px auto 0; padding: 0 20px 100px; }
-        section { background: var(--white); padding: 60px; border-radius: 40px; margin-bottom: 50px; box-shadow: 0 25px 50px rgba(0,0,0,0.06); }
-        h2 { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; border-bottom: 3px solid var(--primary); display: inline-block; margin-bottom: 30px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .service-card { background: #f8fbff; padding: 30px; border-radius: 25px; border-left: 5px solid var(--primary); }
-        .job-card { padding: 25px 0; border-bottom: 1px solid #eee; }
-        .job-card h3 { color: var(--primary); margin: 0; }
-        .tools-flex { display: flex; flex-wrap: wrap; gap: 12px; }
-        .tool-tag { background: var(--gradient); color: white; padding: 12px 25px; border-radius: 15px; font-weight: 600; }
-        .gallery { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 30px; scroll-snap-type: x mandatory; }
-        .gallery img { width: 320px; height: 450px; object-fit: cover; border-radius: 30px; scroll-snap-align: start; flex-shrink: 0; }
-        .btn { padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.4s; display: inline-block; }
-        .btn-white { background: white; color: var(--primary); margin: 10px; }
-        .btn-dark { background: rgba(0,0,0,0.2); color: white; border: 1px solid white; margin: 10px; }
-        footer { text-align: center; padding: 100px 20px; background: var(--dark); color: white; border-radius: 60px 60px 0 0; }
+
+        /* 1. Glassmorphism Nav Bar */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: var(--glass); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            display: flex; justify-content: center; padding: 15px;
+        }
+        nav a { margin: 0 20px; text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; background: var(--gradient); color: white; text-align: center;
+            border-radius: 0 0 80px 80px; padding: 20px;
+        }
+        .profile-pic {
+            width: 200px; height: 200px; border-radius: 50%;
+            border: 8px solid rgba(255,255,255,0.2); object-fit: cover; margin-bottom: 20px;
+        }
+
+        /* Container & Animation Logic */
+        .container { max-width: 1100px; margin: -60px auto 0; padding: 0 20px 100px; }
+        
+        /* 4. Anime-style Reappear Effect */
+        section {
+            background: var(--white); background: white; padding: 50px;
+            border-radius: 40px; margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        section:hover { transform: scale(1.02); box-shadow: 0 30px 60px rgba(9, 132, 227, 0.15); }
+
+        h2 { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+
+        /* 2. Sliding Smaller Service Boxes */
+        .services-slider { display: flex; gap: 20px; overflow-x: auto; padding: 10px 0 30px; scroll-snap-type: x mandatory; }
+        .service-box {
+            min-width: 240px; background: #f8fbff; padding: 20px; border-radius: 20px;
+            scroll-snap-align: start; border: 1px solid #edf2f7; text-align: center;
+        }
+        .service-box i { font-size: 1.5rem; color: var(--primary); margin-bottom: 10px; }
+        .service-box h3 { font-size: 1rem; margin: 10px 0; }
+
+        /* Experience Interactive Styling */
+        .job-card { 
+            padding: 20px; border-radius: 20px; margin-bottom: 15px;
+            border-left: 5px solid var(--primary); transition: 0.3s;
+        }
+        .job-card:hover { background: #f0f7ff; padding-left: 30px; }
+
+        /* 1. Toolkit with SVGs (Sliding) */
+        .toolkit-container { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; }
+        .tool-item {
+            background: white; padding: 15px 25px; border-radius: 15px;
+            display: flex; align-items: center; gap: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            white-space: nowrap; border: 1px solid #eee;
+        }
+        .tool-item img { width: 25px; height: 25px; }
+        .tool-category { font-size: 0.8rem; font-weight: 600; color: #b2bec3; margin: 20px 0 10px; }
+
+        /* Gallery */
+        .gallery { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; }
+        .gallery img { width: 300px; height: 400px; object-fit: cover; border-radius: 25px; flex-shrink: 0; }
+
+        /* 3. Contact Section */
+        .contact-box { text-align: center; }
+        .btn { 
+            padding: 15px 35px; border-radius: 50px; text-decoration: none; 
+            font-weight: 600; display: inline-block; transition: 0.3s; margin: 10px;
+        }
+        .btn-main { background: var(--primary); color: white; }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+
+        footer { text-align: center; padding: 100px 20px; background: var(--dark); color: white; border-radius: 50px 50px 0 0; }
     </style>
 </head>
 <body>
+
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#journey">Experience</a>
+        <a href="#toolkit">Toolkit</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <div class="hero">
         <img src="profile.jpeg" alt="Umesh Salve" class="profile-pic">
-        <h1>Hello, I'm Umesh.</h1>
-        <p>Strategic Talent Acquisition Leader | 10+ Years Experience</p>
+        <h1>Umesh Salve</h1>
+        <p>Strategic TA Leader | 10+ Years Experience</p>
         <div>
-            <a href="https://www.linkedin.com/in/umesh-salve-98512396" target="_blank" class="btn btn-white">LinkedIn</a>
-            <a href="Resume.pdf" download class="btn btn-dark">Download CV</a>
+            <a href="Resume.pdf" download class="btn btn-main" style="background: white; color: var(--primary);">Download CV</a>
         </div>
     </div>
+
     <div class="container">
-        <section>
-            <h2>Services</h2>
-            <div class="services-grid">
-                <div class="service-card"><h3>Recruitment Consulting</h3><p>Global hiring strategy for IT/Non-IT sectors.</p></div>
-                <div class="service-card"><h3>Resume Writing</h3><p>ATS-optimized professional branding.</p></div>
-                <div class="service-card"><h3>Interview Services</h3><p>Executive assessment and coaching.</p></div>
+        
+        <section id="services">
+            <h2>Professional Services</h2>
+            <div class="services-slider">
+                <div class="service-box"><i class="fas fa-handshake"></i><h3>Recruitment Consulting</h3></div>
+                <div class="service-box"><i class="fas fa-file-invoice"></i><h3>Resume Writing</h3></div>
+                <div class="service-box"><i class="fas fa-code"></i><h3>Software Projects</h3></div>
+                <div class="service-card service-box"><i class="fas fa-chart-line"></i><h3>Business Analysis</h3></div>
+                <div class="service-box"><i class="fas fa-users"></i><h3>Interview Coaching</h3></div>
             </div>
         </section>
-        <section>
-            <h2>Experience</h2>
-            <div class="job-card"><h3>Business Lead | Craftedrobo</h3><p>2023 - Present</p></div>
-            <div class="job-card"><h3>Recruiter | Shell</h3><p>2022 - 2023</p></div>
-            <div class="job-card"><h3>Senior TA | Capco</h3><p>2021 - 2022</p></div>
-            <div class="job-card"><h3>TA Specialist | Infosys</h3><p>Previous</p></div>
-        </section>
-        <section>
-            <h2>Toolkit</h2>
-            <div class="tools-flex">
-                <div class="tool-tag">Workday</div><div class="tool-tag">Greenhouse</div>
-                <div class="tool-tag">Kenexa</div><div class="tool-tag">Taleo</div>
-                <div class="tool-tag">Power BI</div>
+
+        <section id="journey">
+            <h2>Professional Journey</h2>
+            <div class="job-card">
+                <h3>Business & Product Lead | Craftedrobo</h3>
+                <small>2023 - Present</small>
+                <p>Leading AI-powered recruitment platforms and product lifecycle management.</p>
+            </div>
+            <div class="job-card">
+                <h3>Recruiter (Contract) | Shell</h3>
+                <small>2022 - 2023</small>
+                <p>High-level leadership hiring for niche technical domains across APAC and Europe.</p>
+            </div>
+            <div class="job-card">
+                <h3>Senior TA | Capco</h3>
+                <small>2021 - 2022</small>
+                <p>Specialized talent acquisition strategy for management consulting.</p>
+            </div>
+            <div class="job-card">
+                <h3>TA Specialist | Infosys</h3>
+                <p>End-to-end recruitment for large-scale IT verticals.</p>
             </div>
         </section>
-        <section>
-            <h2>Gallery</h2>
+
+        <section id="toolkit">
+            <h2>Modern Tech Stack</h2>
+            
+            <div class="tool-category">ATS & CRM</div>
+            <div class="toolkit-container">
+                <div class="tool-item"><img src="https://www.svgrepo.com/show/354573/workday.svg"> Workday</div>
+                <div class="tool-item"><img src="https://www.vectorlogo.zone/logos/greenhouseio/greenhouseio-icon.svg"> Greenhouse</div>
+                <div class="tool-item"><img src="https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg"> Salesforce</div>
+                <div class="tool-item">Taleo</div>
+                <div class="tool-item">SuccessFactors</div>
+                <div class="tool-item">Kenexa</div>
+            </div>
+
+            <div class="tool-category">REPORTING & ANALYTICS</div>
+            <div class="toolkit-container">
+                <div class="tool-item"><img src="https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg"> Power BI</div>
+                <div class="tool-item">Talent Insights</div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Personal Gallery</h2>
             <div class="gallery">
-                <img src="photo2.jpeg" alt="Gallery">
-                <img src="photo3.jpeg" alt="Gallery">
-                <img src="photo4.jpeg" alt="Gallery">
+                <img src="photo2.jpeg" alt="Travel">
+                <img src="photo3.jpeg" alt="Travel">
+                <img src="photo4.jpeg" alt="Travel">
             </div>
         </section>
+
+        <section id="contact" class="contact-box">
+            <h2>Let's Connect</h2>
+            <p>Ready to scale your talent acquisition or technical projects?</p>
+            <p><strong><i class="fas fa-phone"></i> +91 8553570365</strong></p>
+            <a href="mailto:salve.umesh05@gmail.com" class="btn btn-main">Hire Me Now (Direct Email)</a>
+            <a href="https://www.linkedin.com/in/umesh-salve-98512396" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
+        </section>
+
     </div>
+
     <footer>
-        <h2>salve.umesh05@gmail.com</h2>
-        <p>&copy; 2026 Umesh Salve</p>
+        <p>&copy; 2026 Umesh Salve | Strategic TA Leader</p>
     </footer>
-    <script>ScrollReveal().reveal('section', { delay: 200, distance: '50px', origin: 'bottom' });</script>
+
+    <script>
+        ScrollReveal().reveal('section', { delay: 200, distance: '60px', origin: 'bottom', duration: 1000 });
+    </script>
 </body>
 </html>
