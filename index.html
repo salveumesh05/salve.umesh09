@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umesh Salve | Talent Acquisition Leader</title>
+    <title>Umesh Salve | TA Leader & Consultant</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,25 +11,17 @@
             --dark-grey: #2d3436;
             --light-grey: #f1f2f6;
             --white: #ffffff;
-            --accent-color: #fab1a0;
+            --accent-blue: #74b9ff;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--white);
-            color: var(--dark-grey);
-            margin: 0;
-            line-height: 1.6;
-        }
-
+        body { font-family: 'Poppins', sans-serif; background-color: var(--white); color: var(--dark-grey); margin: 0; line-height: 1.6; }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
 
-        /* Header & Profile Section */
         header { text-align: center; padding: 60px 20px; background: var(--light-grey); border-radius: 0 0 50px 50px; margin-bottom: 40px; }
         .profile-pic { width: 180px; height: 180px; border-radius: 50%; border: 5px solid var(--white); box-shadow: 0 10px 20px rgba(0,0,0,0.1); object-fit: cover; }
         
         .action-buttons { margin-top: 25px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn { padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-flex; align-items: center; }
+        .btn { padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-flex; align-items: center; cursor: pointer; border: none; }
         .btn-linkedin { background: #0077b5; color: white; }
         .btn-cv { background: var(--dark-grey); color: white; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
@@ -37,18 +29,20 @@
         section { margin-bottom: 60px; }
         h2 { border-left: 5px solid var(--primary-blue); padding-left: 15px; margin-bottom: 30px; text-transform: uppercase; font-size: 1.3rem; color: var(--primary-blue); }
 
-        /* Skills Grid with Icons */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; }
-        .skill-item { background: var(--light-grey); padding: 20px; border-radius: 15px; text-align: center; transition: 0.3s; }
-        .skill-item:hover { background: var(--accent-color); color: white; }
-        .skill-item img { width: 45px; height: 45px; margin-bottom: 10px; }
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .service-card { background: var(--light-grey); padding: 25px; border-radius: 20px; transition: 0.3s; border-bottom: 5px solid transparent; }
+        .service-card:hover { transform: translateY(-5px); border-bottom: 5px solid var(--primary-blue); background: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .service-card h3 { color: var(--primary-blue); margin-top: 0; font-size: 1.1rem; }
+        .service-card p { font-size: 0.9rem; margin-bottom: 0; }
 
-        /* Experience & Education Cards */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; }
+        .skill-item { background: var(--light-grey); padding: 15px; border-radius: 12px; text-align: center; font-weight: 600; border-bottom: 4px solid var(--primary-blue); }
+
         .card { background: var(--white); padding: 30px; border-radius: 20px; margin-bottom: 25px; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .card h3 { margin: 0; color: var(--primary-blue); font-size: 1.2rem; }
         .card-meta { font-size: 0.85rem; color: #b2bec3; margin-bottom: 15px; font-weight: 600; }
 
-        /* Photo Gallery */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
         .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; }
 
@@ -59,39 +53,37 @@
 
 <div class="container">
     <header>
-        <img src="profile.jpeg" alt="Umesh Salve" class="profile-pic">
+        <img src="profile.jpeg.jpeg" alt="Umesh Salve" class="profile-pic">
         <h1>Umesh Salve</h1>
-        <p>Strategic Talent Acquisition Leader | 10+ Years Experience</p>
-        
+        <p>Strategic Talent Acquisition Leader & Consultant</p>
         <div class="action-buttons">
             <a href="https://www.linkedin.com/in/umesh-salve-98512396" target="_blank" class="btn btn-linkedin">LinkedIn Profile</a>
-            <a href="Resume.pdf" download class="btn btn-cv">Download Resume (PDF)</a>
+            <a href="Umesh Salve_Updated_CV-TA1.pdf" download class="btn btn-cv">Download Resume (PDF)</a>
         </div>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Strategic and results-driven Talent Acquisition leader with over 10 years of experience across IT and Non-IT domains, spanning BFSI, Consulting, and Oil & Gas environments. I specialize in building scalable, high-impact hiring models and partnering with global senior stakeholders to deliver time-critical leadership roles.</p>
-    </section>
-
-    <section id="skills">
-        <h2>Technical Proficiency</h2>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <img src="https://cdn.worldvectorlogo.com/logos/workday-1.svg" alt="Workday">
-                <div>Workday</div>
+    <section id="services">
+        <h2>Professional Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Recruitment Consulting</h3>
+                <p>Strategic hiring models for IT/Non-IT sectors, leadership hiring, and scaling talent acquisition for global organizations like Shell and Capco.</p>
             </div>
-            <div class="skill-item">
-                <img src="https://cdn.worldvectorlogo.com/logos/greenhouse.svg" alt="Greenhouse">
-                <div>Greenhouse</div>
+            <div class="service-card">
+                <h3>Resume Writing</h3>
+                <p>Professional resume and portfolio development tailored to pass ATS filters and capture recruiter attention in niche industries.</p>
             </div>
-            <div class="skill-item">
-                <img src="https://cdn.worldvectorlogo.com/logos/microsoft-power-bi-2020.svg" alt="Power BI">
-                <div>Power BI</div>
+            <div class="service-card">
+                <h3>Software Development Projects</h3>
+                <p>Managing the lifecycle of AI-powered talent solutions and product roadmaps, as demonstrated at Craftedrobo Technologies.</p>
             </div>
-            <div class="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-                <div>Talent Insights</div>
+            <div class="service-card">
+                <h3>Business Analysis</h3>
+                <p>Requirement gathering, client discovery, and aligning technical roadmaps with business revenue goals for talent-tech platforms.</p>
+            </div>
+            <div class="service-card">
+                <h3>Interview Services</h3>
+                <p>Expert interview coaching, panel management, and candidate assessment strategies to identify high-potential leadership talent.</p>
             </div>
         </div>
     </section>
@@ -99,19 +91,25 @@
     <section id="experience">
         <h2>Professional Journey</h2>
         <div class="card">
-            <h3>Business & Product Lead - Talent & AI Solutions</h3>
+            <h3>Business & Product Lead</h3>
             <div class="card-meta">Craftedrobo Technologies | Oct 2023 - Present</div>
-            <p>Leading the delivery of an AI-powered Job Portal and ATS platform focused on hiring efficiency.</p>
+            <p>Directing AI-powered Job Portal development and business strategy.</p>
         </div>
         <div class="card">
             <h3>Recruiter (Contract)</h3>
             <div class="card-meta">Shell India Markets Pvt Ltd | April 2022 - June 2023</div>
-            <p>Owned leadership recruitment delivery for niche domains like AI/ML and Data Science across India, Europe, and APAC.</p>
+            <p>Led leadership hiring for AI/ML and Data Science across India, Europe, and APAC.</p>
         </div>
-        <div class="card">
-            <h3>Senior Talent Acquisition</h3>
-            <div class="card-meta">Capco Technologies | March 2021 - Feb 2022</div>
-            <p>Delivered 30 business-critical hires in 3 months through intensive recruitment drives.</p>
+    </section>
+
+    <section id="skills">
+        <h2>ATS & Reporting Tools</h2>
+        <div class="skills-grid">
+            <div class="skill-item">Workday</div>
+            <div class="skill-item">Greenhouse</div>
+            <div class="skill-item">Power BI</div>
+            <div class="skill-item">Talent Insights</div>
+            <div class="skill-item">Salesforce</div>
         </div>
     </section>
 
@@ -120,27 +118,24 @@
         <div class="card">
             <h3>Bachelor's in Commerce (B.Com)</h3>
             <div class="card-meta">Karnataka University, Dharwad</div>
-            <p>Focused on business fundamentals and commerce at Nehru Arts, Science, Commerce and BBA College.</p>
+            <p>Nehru Arts, Science, Commerce and BBA College, Hubli.</p>
         </div>
     </section>
 
     <section id="gallery">
         <h2>Personal Gallery</h2>
         <div class="gallery">
-            <img src="photo2.jpeg" alt="Personal Photo 1">
-            <img src="photo3.jpeg" alt="Personal Photo 2">
-            <img src="photo4.jpeg" alt="Personal Photo 3">
+            <img src="photo2.jpeg.jpeg" alt="Personal Photo 1">
+            <img src="photo3.jpeg.png" alt="Personal Photo 2">
+            <img src="photo4.jpeg.jpeg" alt="Personal Photo 3">
         </div>
     </section>
 
-    <section style="text-align: center;">
-        <h2>Let's Connect</h2>
-        <p>Email: salve.umesh05@gmail.com | Phone: +91 8553570365</p>
-        <a href="mailto:salve.umesh05@gmail.com" class="btn btn-linkedin" style="background: var(--primary-blue);">Send an Email</a>
-    </section>
-
     <footer>
-        <p>&copy; 2026 Umesh Salve. All Rights Reserved.</p>
+        <h2>Get in Touch</h2>
+        <p>Email: salve.umesh05@gmail.com | Phone: +91 8553570365</p>
+        <a href="mailto:salve.umesh05@gmail.com" class="btn btn-linkedin">Send an Inquiry</a>
+        <p style="margin-top:25px; font-size: 0.8rem;">&copy; 2026 Umesh Salve. All Rights Reserved.</p>
     </footer>
 </div>
 
