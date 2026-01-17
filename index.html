@@ -7,99 +7,136 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #2d3436;
-            --accent-color: #0984e3;
-            --secondary-bg: #f9f9f9;
+            --primary-blue: #0984e3;
+            --dark-grey: #2d3436;
+            --light-grey: #f1f2f6;
+            --white: #ffffff;
+            --accent-color: #fab1a0;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--white);
+            color: var(--dark-grey);
             margin: 0;
             line-height: 1.6;
         }
 
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
 
-        header { text-align: center; margin-bottom: 60px; }
-        .profile-pic { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent-color); object-fit: cover; }
+        /* Header & Profile Section */
+        header { text-align: center; padding: 60px 20px; background: var(--light-grey); border-radius: 0 0 50px 50px; margin-bottom: 40px; }
+        .profile-pic { width: 180px; height: 180px; border-radius: 50%; border: 5px solid var(--white); box-shadow: 0 10px 20px rgba(0,0,0,0.1); object-fit: cover; }
         
-        section { margin-bottom: 50px; padding: 20px 0; }
-        h2 { border-bottom: 3px solid var(--accent-color); display: inline-block; margin-bottom: 25px; text-transform: uppercase; font-size: 1.2rem; }
+        .action-buttons { margin-top: 25px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn { padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-flex; align-items: center; }
+        .btn-linkedin { background: #0077b5; color: white; }
+        .btn-cv { background: var(--dark-grey); color: white; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        /* Skills Grid */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center; }
-        .skill-item { background: var(--secondary-bg); padding: 15px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+        section { margin-bottom: 60px; }
+        h2 { border-left: 5px solid var(--primary-blue); padding-left: 15px; margin-bottom: 30px; text-transform: uppercase; font-size: 1.3rem; color: var(--primary-blue); }
 
-        /* Experience/Achievement Cards */
-        .card { background: var(--secondary-bg); padding: 25px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid var(--accent-color); }
-        .card h3 { margin-top: 0; color: var(--accent-color); }
-        .card-meta { font-size: 0.85rem; color: #636e72; margin-bottom: 10px; }
+        /* Skills Grid with Icons */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; }
+        .skill-item { background: var(--light-grey); padding: 20px; border-radius: 15px; text-align: center; transition: 0.3s; }
+        .skill-item:hover { background: var(--accent-color); color: white; }
+        .skill-item img { width: 45px; height: 45px; margin-bottom: 10px; }
 
-        /* Contact Section */
-        .contact-box { text-align: center; background: #2d3436; color: white; padding: 40px; border-radius: 15px; }
-        .contact-btn { display: inline-block; background: var(--accent-color); color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; margin-top: 20px; transition: 0.3s; }
-        .contact-btn:hover { opacity: 0.8; }
+        /* Experience & Education Cards */
+        .card { background: var(--white); padding: 30px; border-radius: 20px; margin-bottom: 25px; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card h3 { margin: 0; color: var(--primary-blue); font-size: 1.2rem; }
+        .card-meta { font-size: 0.85rem; color: #b2bec3; margin-bottom: 15px; font-weight: 600; }
 
-        footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #b2bec3; }
+        /* Photo Gallery */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; }
+
+        footer { text-align: center; padding: 50px; background: var(--dark-grey); color: white; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <img src="https://via.placeholder.com/160" alt="Umesh Salve" class="profile-pic">
+        <img src="profile.jpeg" alt="Umesh Salve" class="profile-pic">
         <h1>Umesh Salve</h1>
         <p>Strategic Talent Acquisition Leader | 10+ Years Experience</p>
+        
+        <div class="action-buttons">
+            <a href="https://www.linkedin.com/in/umesh-salve-98512396" target="_blank" class="btn btn-linkedin">LinkedIn Profile</a>
+            <a href="Resume.pdf" download class="btn btn-cv">Download Resume (PDF)</a>
+        </div>
     </header>
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Results-driven Talent Acquisition leader with extensive experience across IT and Non-IT domains, spanning BFSI, Consulting, and Oil & Gas. Proven expertise in end-to-end recruitment for global enterprises such as Shell, Capco, and Infosys[cite: 4, 7]. I specialize in building scalable hiring models and aligning recruitment strategies with organizational objectives[cite: 6].</p>
+        <p>Strategic and results-driven Talent Acquisition leader with over 10 years of experience across IT and Non-IT domains, spanning BFSI, Consulting, and Oil & Gas environments. I specialize in building scalable, high-impact hiring models and partnering with global senior stakeholders to deliver time-critical leadership roles.</p>
     </section>
 
     <section id="skills">
-        <h2>ATS & Tools Proficiency</h2>
+        <h2>Technical Proficiency</h2>
         <div class="skills-grid">
-            <div class="skill-item">Workday</div>
-            <div class="skill-item">Greenhouse</div>
-            <div class="skill-item">Taleo</div>
-            <div class="skill-item">Kenexa</div>
-            <div class="skill-item">Power BI</div>
-            <div class="skill-item">LinkedIn Insights</div>
+            <div class="skill-item">
+                <img src="https://cdn.worldvectorlogo.com/logos/workday-1.svg" alt="Workday">
+                <div>Workday</div>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.worldvectorlogo.com/logos/greenhouse.svg" alt="Greenhouse">
+                <div>Greenhouse</div>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.worldvectorlogo.com/logos/microsoft-power-bi-2020.svg" alt="Power BI">
+                <div>Power BI</div>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+                <div>Talent Insights</div>
+            </div>
         </div>
     </section>
 
     <section id="experience">
-        <h2>Key Experience</h2>
+        <h2>Professional Journey</h2>
         <div class="card">
-            <h3>Business & Product Lead</h3>
+            <h3>Business & Product Lead - Talent & AI Solutions</h3>
             <div class="card-meta">Craftedrobo Technologies | Oct 2023 - Present</div>
-            <p>Leading the design and delivery of an AI-powered Job Portal and ATS platform, focused on improving hiring efficiency and candidate matching[cite: 18, 21].</p>
+            <p>Leading the delivery of an AI-powered Job Portal and ATS platform focused on hiring efficiency.</p>
         </div>
         <div class="card">
             <h3>Recruiter (Contract)</h3>
             <div class="card-meta">Shell India Markets Pvt Ltd | April 2022 - June 2023</div>
-            <p>Owned end-to-end delivery for leadership roles across India, Europe, and APAC. Managed a team of sourcers to ensure quality delivery for niche AI/ML and Data Science domains[cite: 28, 30, 41].</p>
+            <p>Owned leadership recruitment delivery for niche domains like AI/ML and Data Science across India, Europe, and APAC.</p>
+        </div>
+        <div class="card">
+            <h3>Senior Talent Acquisition</h3>
+            <div class="card-meta">Capco Technologies | March 2021 - Feb 2022</div>
+            <p>Delivered 30 business-critical hires in 3 months through intensive recruitment drives.</p>
         </div>
     </section>
 
-    <section id="achievements">
-        <h2>Key Achievements</h2>
-        <ul>
-            <li><strong>Global Recognition:</strong> Received appreciation from Shell Global Leadership for closing critical roles within 30 days[cite: 134].</li>
-            <li><strong>Bulk Hiring:</strong> Successfully delivered 30 business-critical hires in 3 months at Capco through intensive recruitment drives[cite: 135].</li>
-            <li><strong>Scale:</strong> Closed and onboarded 100+ candidates for multiple clients during structured job fairs[cite: 139].</li>
-        </ul>
+    <section id="education">
+        <h2>Education</h2>
+        <div class="card">
+            <h3>Bachelor's in Commerce (B.Com)</h3>
+            <div class="card-meta">Karnataka University, Dharwad</div>
+            <p>Focused on business fundamentals and commerce at Nehru Arts, Science, Commerce and BBA College.</p>
+        </div>
     </section>
 
-    <section class="contact-box">
+    <section id="gallery">
+        <h2>Personal Gallery</h2>
+        <div class="gallery">
+            <img src="photo2.jpeg" alt="Personal Photo 1">
+            <img src="photo3.jpeg" alt="Personal Photo 2">
+            <img src="photo4.jpeg" alt="Personal Photo 3">
+        </div>
+    </section>
+
+    <section style="text-align: center;">
         <h2>Let's Connect</h2>
-        <p>Interested in collaborating or discussing talent strategies?</p>
         <p>Email: salve.umesh05@gmail.com | Phone: +91 8553570365</p>
-        <a href="mailto:salve.umesh05@gmail.com" class="contact-btn">Email Me</a>
+        <a href="mailto:salve.umesh05@gmail.com" class="btn btn-linkedin" style="background: var(--primary-blue);">Send an Email</a>
     </section>
 
     <footer>
